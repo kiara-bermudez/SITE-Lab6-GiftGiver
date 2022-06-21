@@ -37,14 +37,14 @@ By the end of this lab you will be able to...
 
 #### TDD Lab
 
-- [ ] Start by installing the core dependencies for this project with `npm install`.
-- [ ] Try running the tests in the terminal. They should all be failing, but that's ok. We'll use them to guide our development during this lab.
+- [X] Start by installing the core dependencies for this project with `npm install`.
+- [X] Try running the tests in the terminal. They should all be failing, but that's ok. We'll use them to guide our development during this lab.
 
 ```bash
 npm run test
 ```
 
-- [ ] To start the server in development mode run:
+- [X] To start the server in development mode run:
 
 ```bash
 npm run dev
@@ -52,8 +52,8 @@ npm run dev
 
 Running the tests along with the server requires having two terminal windows open:
 
-  - [ ] In one run the `npm run dev`
-  - [ ] In the other, run `npm run test:watch`
+  - [X] In one run the `npm run dev`
+  - [X] In the other, run `npm run test:watch`
 
 Then, every time a file is updated, the tests will be re-run. At the beginning, the `npm run dev` command will fail since we don't have a valid Express application to run. Let's fix that in the following steps!
 
@@ -79,37 +79,37 @@ The Express app and server will be split up in two different files - `app.js` an
 
 In the `app.js` file:
 
-- [ ] Wire up a server
-  - [ ] Start by using the `express` package to instantiate a simple server application
-  - [ ] Export the application from the `app.js` file as its default export
-- [ ] Test that the application works.
-  - [ ] Punch the `npm run dev` command into the terminal and if all goes well, the server should start up.
-- [ ] Add essential middleware
-  - [ ] Next, incorporate a logging middleware into the application with the `morgan` package and set its logging level to `tiny`.
-  - [ ] Afterwards, set up a request body parsing middleware with the `express.json` method.
-  - [ ] Consult the express [docs](https://expressjs.com/en/5x/api.html) if any of these parts seem confusing.
-- [ ] Define a "healthcheck" endpoint
-  - [ ] Create a single `GET` request handler at the `/` endpoint
-    - [ ] It should respond to all `GET` requests with a JSON object and a `200` status code
-    - [ ] The JSON response should contain a single key of `ping` that stores the string value: `pong`. As in: `{ "ping": "pong" }`.
+- [X] Wire up a server
+  - [X] Start by using the `express` package to instantiate a simple server application
+  - [X] Export the application from the `app.js` file as its default export
+- [X] Test that the application works.
+  - [X] Punch the `npm run dev` command into the terminal and if all goes well, the server should start up.
+- [X] Add essential middleware
+  - [X] Next, incorporate a logging middleware into the application with the `morgan` package and set its logging level to `tiny`.
+  - [X] Afterwards, set up a request body parsing middleware with the `express.json` method.
+  - [X] Consult the express [docs](https://expressjs.com/en/5x/api.html) if any of these parts seem confusing.
+- [X] Define a "healthcheck" endpoint
+  - [X] Create a single `GET` request handler at the `/` endpoint
+    - [X] It should respond to all `GET` requests with a JSON object and a `200` status code
+    - [X] The JSON response should contain a single key of `ping` that stores the string value: `pong`. As in: `{ "ping": "pong" }`.
 
 ### Step 2: Initialize the `/gift-exchange` router (15-20 mins)
 
-  - [ ] Setup files and folders
-    - [ ] Create a new directory in the root of the project called `routes`
-    - [ ] Inside that directory, create a new file called `gift-exchange.js`
-  - [ ] In the `gift-exchange.js` file:
-    - [ ] Create an Express router
-    - [ ] Make that router the default export for the file
-    - [ ] Setup endpoint handlers
-      - [ ] Ensure the router has handlers that respond to `POST` requests at the `/pairs` and `/traditional` endpoints.
-      - [ ] Both endpoints should accept a JSON body in the `POST` request that contains a key for `names`.
-      - [ ] That key should store an array of users who will be entered in the gift exchange.
-      - [ ] For now, they can both handle each request with a simple JSON response and a `200` status code
-  - [ ] Back in the `app.js` file:
-    - [ ] Mount the router to the Express application at the `/gift-exchange` endpoint
-    - [ ] The application should now respond to `POST` requests at the `/gift-exchange/pairs` and `/gift-exchange/traditional` endpoints
-    - [ ] Restart the server if needed
+  - [X] Setup files and folders
+    - [X] Create a new directory in the root of the project called `routes`
+    - [X] Inside that directory, create a new file called `gift-exchange.js`
+  - [X] In the `gift-exchange.js` file:
+    - [X] Create an Express router
+    - [X] Make that router the default export for the file
+    - [X] Setup endpoint handlers
+      - [X] Ensure the router has handlers that respond to `POST` requests at the `/pairs` and `/traditional` endpoints.
+      - [X] Both endpoints should accept a JSON body in the `POST` request that contains a key for `names`.
+      - [X] That key should store an array of users who will be entered in the gift exchange.
+      - [X] For now, they can both handle each request with a simple JSON response and a `200` status code
+  - [X] Back in the `app.js` file:
+    - [X] Mount the router to the Express application at the `/gift-exchange` endpoint
+    - [X] The application should now respond to `POST` requests at the `/gift-exchange/pairs` and `/gift-exchange/traditional` endpoints
+    - [X] Restart the server if needed
 
 ### Step 3: The `GiftExchange` model (20-25 mins)
 
