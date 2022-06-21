@@ -1,16 +1,25 @@
 const express = require("express");
 const router = express.Router();
+const GiftExchange = require("../models/gift-exchange");
 
 router.post("/pairs", async (req, res, next) => {
-    console.log(req.body);
-
-    res.status(200).json({names:"pairs"});
+    try {
+        const results = await GiftExchange.pairs(req.body.names);
+        res.status(200).send(results);
+    } catch(err) {
+        next(err);
+    }
+    
 })
 
 router.post("/traditional", async (req, res, next) => {
-    console.log(req.body);
+    try {
+        const results = await GiftExchange.traditional(req.body.names);
+        res.status(200).send(results);        
+    } catch(err) {
+        next(err);
+    }
 
-    res.status(200).json({names:"traditional"});
 })
 
 module.exports = router;

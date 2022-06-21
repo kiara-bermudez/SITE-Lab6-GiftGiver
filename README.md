@@ -113,34 +113,34 @@ In the `app.js` file:
 
 ### Step 3: The `GiftExchange` model (20-25 mins)
 
-  - [ ] Setup files and folders
-    - [ ] Create a new directory in the root of the project called `routes`
-    - [ ] Inside that directory, create a new file called `gift-exchange.js`
-  - [ ] In the `models/gift-exchange.js` file:
-    - [ ] Create a `GiftExchange` class
-      - [ ] Export the class from the file as its default export
-      - [ ] It should contain two static methods:
-        - [ ] The `pairs` method:
-          - [ ] Should accept a single argument - `names` - which is an array of strings.
+  - [X] Setup files and folders
+    - [X] Create a new directory in the root of the project called `routes`
+    - [X] Inside that directory, create a new file called `gift-exchange.js`
+  - [X] In the `models/gift-exchange.js` file:
+    - [X] Create a `GiftExchange` class
+      - [X] Export the class from the file as its default export
+      - [X] It should contain two static methods:
+        - [X] The `pairs` method:
+          - [X] Should accept a single argument - `names` - which is an array of strings.
             - Example: `["me", "you", "them", "us", "her", "him", "they", "y'all"]`
-          - [ ] If the number of names provided is odd, it should throw a new `Error` explaining that the number of names can't be odd.
-          - [ ] Should implements an algorithm responsible for randomly **randomly** pairing names together
-              - [ ] Should use the `Math.random` method
-              - [ ] Should not have any names repeated
-              - [ ] Should not exclude any names
-          - [ ] Should return an array of tuples (array with only two items) that represent the random pairings
-        - [ ] The `traditional` method
-          - [ ] Should accept a single argument - `names` - which is an array of strings
+          - [X] If the number of names provided is odd, it should throw a new `Error` explaining that the number of names can't be odd.
+          - [X] Should implements an algorithm responsible for randomly **randomly** pairing names together
+              - [X] Should use the `Math.random` method
+              - [X] Should not have any names repeated
+              - [X] Should not exclude any names
+          - [X] Should return an array of tuples (array with only two items) that represent the random pairings
+        - [X] The `traditional` method
+          - [X] Should accept a single argument - `names` - which is an array of strings
             - Example `["me", "you", "them", "us", "her", "him", "they", "y'all"]`
-          - [ ] Should implement an algorithm to **randomly** match each name to another name in the list in sequential order:
-            - [ ] The result should be an array of strings indicating who is giving a gift to who.
-            - [ ] The format of each string should be: `"name1 is giving a gift to name2"`
-            - [ ] The recipient of each gift should be the next gift giver
-            - [ ] The last person to receive a gift should give a gift to the first person.
-            - [ ] No name should give a gift twice, and no name should receive a gift twice
-            - [ ] No names should be left out
-            - [ ] Should use the `Math.random` method
-          - [ ] Should return the array of properly formatted strings
+          - [X] Should implement an algorithm to **randomly** match each name to another name in the list in sequential order:
+            - [X] The result should be an array of strings indicating who is giving a gift to who.
+            - [X] The format of each string should be: `"name1 is giving a gift to name2"`
+            - [X] The recipient of each gift should be the next gift giver
+            - [X] The last person to receive a gift should give a gift to the first person.
+            - [X] No name should give a gift twice, and no name should receive a gift twice
+            - [X] No names should be left out
+            - [X] Should use the `Math.random` method
+          - [X] Should return the array of properly formatted strings
 
 
 #### GiftExchange model examples:
@@ -179,47 +179,47 @@ GiftExchange.traditional(names)
 
 ### Step 4: Error handling (20-25 mins)
 
-  - [ ] Setup files and folders
-    - [ ] Create a new directory in the root of the project called `utils`
-    - [ ] Inside that directory, create a new file called `errors.js`
-  - [ ] In the `utils/errors.js` file:
-    - [ ] Create a new error class that inherits from the base `Error` class:
-      - [ ] `ExpressError`:
-        - [ ] the `constructor` should accept two arguments - `message` and `status`
-        - [ ] it should then set a `message` property on new instances of the class that explains what went wrong
-        - [ ] it should alos set a `status` property on new instances of the class that represent the status code of the error.
-    - [ ] Next, create two new error classes that inherit from the `ExpressError` class
-      - [ ] `BadRequestError`:
-        - [ ] should have a default `message` property set to `Bad request` that can be overriden in the constructor
-        - [ ] should have a `status` property that is set to `400`
-      - [ ] `NotFoundError`:
-        - [ ] should have a default `message` property set to `Not found` that can be overriden in the constructor
-        - [ ] should have a `status` property that is set to `404`
-    - [ ] Export all error classes from the file
+  - [X] Setup files and folders
+    - [X] Create a new directory in the root of the project called `utils`
+    - [X] Inside that directory, create a new file called `errors.js`
+  - [X] In the `utils/errors.js` file:
+    - [X] Create a new error class that inherits from the base `Error` class:
+      - [X] `ExpressError`:
+        - [X] the `constructor` should accept two arguments - `message` and `status`
+        - [X] it should then set a `message` property on new instances of the class that explains what went wrong
+        - [X] it should alos set a `status` property on new instances of the class that represent the status code of the error.
+    - [X] Next, create two new error classes that inherit from the `ExpressError` class
+      - [X] `BadRequestError`:
+        - [X] should have a default `message` property set to `Bad request` that can be overriden in the constructor
+        - [X] should have a `status` property that is set to `400`
+      - [X] `NotFoundError`:
+        - [X] should have a default `message` property set to `Not found` that can be overriden in the constructor
+        - [X] should have a `status` property that is set to `404`
+    - [X] Export all error classes from the file
   - [ ] In the `models/gift-exchange.js` file:
     - [ ] Replace all instances where a generic error is thrown with a `BadRequestError`
-  - [ ] In the `app.js` file:
-    - [ ] Create error handling middleware:
-      - [ ] Generic Error handler
-        - [ ] Define a middleware handler after all other middleware, routes, etc in the application
-        - [ ] Should be the **last** middleware in the application
-        - [ ] The handler should be a function that accepts four arguments - `error`, `req`, `res`, and `next`.
-        - [ ] It should extract the `status` and `message` properties from the `error` argument.
-          - [ ] If no valid `status` exists, it should default to `500`
-          - [ ] If no valid `message` exists, it should default to `Something wen't wrong in the application`
-        - [ ] It should always send back a JSON response:
-          - [ ] The status code should be set to whatever the `status` is.
-          - [ ] The JSON response should be an object:
-            - [ ] The object should contain one property - `error`
-            - [ ] The `error` property should contain an object with two properties - `status` and `message` - set to the `status` and `message` of the error.
-      - [ ] 404 Handler
-        - [ ] Define a middleware after all other valid endpoints that does nothing except call the `next` function with a new `NotFoundError`
-        - [ ] Should be the **second last** middleware in the application
+  - [X] In the `app.js` file:
+    - [X] Create error handling middleware:
+      - [X] Generic Error handler
+        - [X] Define a middleware handler after all other middleware, routes, etc in the application
+        - [X] Should be the **last** middleware in the application
+        - [X] The handler should be a function that accepts four arguments - `error`, `req`, `res`, and `next`.
+        - [X] It should extract the `status` and `message` properties from the `error` argument.
+          - [X] If no valid `status` exists, it should default to `500`
+          - [X] If no valid `message` exists, it should default to `Something wen't wrong in the application`
+        - [X] It should always send back a JSON response:
+          - [X] The status code should be set to whatever the `status` is.
+          - [X] The JSON response should be an object:
+            - [X] The object should contain one property - `error`
+            - [X] The `error` property should contain an object with two properties - `status` and `message` - set to the `status` and `message` of the error.
+      - [X] 404 Handler
+        - [X] Define a middleware after all other valid endpoints that does nothing except call the `next` function with a new `NotFoundError`
+        - [X] Should be the **second last** middleware in the application
 
 ### Step 5: Wire up the Model and routes
 
-  - [ ] In the `routes/git-exchange.js` file:
-    - [ ] Import the `GiftExchange` model
+  - [X] In the `routes/git-exchange.js` file:
+    - [X] Import the `GiftExchange` model
     - [ ] For `POST` requests to either the `/gift-exchange/pairs` or `/gift-exchange/traditional` endpoints:
       - [ ] Use the proper `try...catch...` syntax
       - [ ] Check that a valid request body exists and that the `names` key is found in the request body
