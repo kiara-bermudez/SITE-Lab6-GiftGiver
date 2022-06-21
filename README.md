@@ -17,12 +17,12 @@ By the end of this lab you will be able to...
 
 #### Core feature:
 
-- [ ] Node/Express API written in JavaScript
-- [ ] Code to create the Express application and wire up the middleware should be written in the `app.js` file
-- [ ] Code to run the API located in the `server.js` file, where it sould import the Express application from the `app.js` code and then make sure it listens on port `3000`.
-- [ ] A `GiftExchange` model that implements two different gift-exchange algorithms.
-- [ ] An Express router living at the `/gift-exchange` endpoint to handle requests for the two different algorithms
-- [ ] Logging and error-handling middleware to enable more seamless interaction with the API
+- [X] Node/Express API written in JavaScript
+- [X] Code to create the Express application and wire up the middleware should be written in the `app.js` file
+- [X] Code to run the API located in the `server.js` file, where it sould import the Express application from the `app.js` code and then make sure it listens on port `3000`.
+- [X] A `GiftExchange` model that implements two different gift-exchange algorithms.
+- [X] An Express router living at the `/gift-exchange` endpoint to handle requests for the two different algorithms
+- [X] Logging and error-handling middleware to enable more seamless interaction with the API
 
 #### Stretch Feature:
 
@@ -196,8 +196,8 @@ GiftExchange.traditional(names)
         - [X] should have a default `message` property set to `Not found` that can be overriden in the constructor
         - [X] should have a `status` property that is set to `404`
     - [X] Export all error classes from the file
-  - [ ] In the `models/gift-exchange.js` file:
-    - [ ] Replace all instances where a generic error is thrown with a `BadRequestError`
+  - [X] In the `models/gift-exchange.js` file:
+    - [X] Replace all instances where a generic error is thrown with a `BadRequestError`
   - [X] In the `app.js` file:
     - [X] Create error handling middleware:
       - [X] Generic Error handler
@@ -220,14 +220,14 @@ GiftExchange.traditional(names)
 
   - [X] In the `routes/git-exchange.js` file:
     - [X] Import the `GiftExchange` model
-    - [ ] For `POST` requests to either the `/gift-exchange/pairs` or `/gift-exchange/traditional` endpoints:
-      - [ ] Use the proper `try...catch...` syntax
-      - [ ] Check that a valid request body exists and that the `names` key is found in the request body
-      - [ ] If no valid request body exists, the endpoint should call `next` with a `BadRequestError`
-      - [ ] If the `names` key in the request body does not exist, or is not a valid array, the endpoint should call `next` with a `BadRequestError`
-      - [ ] Call the appropriate `GiftExchange` model with the proper arguments
-      - [ ] Send the results back to the user in a JSON response with a `200` status code when everything goes well
-      - [ ] Ensure the endpoints pass any caught errors to the `next` function
+    - [X] For `POST` requests to either the `/gift-exchange/pairs` or `/gift-exchange/traditional` endpoints:
+      - [X] Use the proper `try...catch...` syntax
+      - [X] Check that a valid request body exists and that the `names` key is found in the request body
+      - [X] If no valid request body exists, the endpoint should call `next` with a `BadRequestError`
+      - [X] If the `names` key in the request body does not exist, or is not a valid array, the endpoint should call `next` with a `BadRequestError`
+      - [X] Call the appropriate `GiftExchange` model with the proper arguments
+      - [X] Send the results back to the user in a JSON response with a `200` status code when everything goes well
+      - [X] Ensure the endpoints pass any caught errors to the `next` function
 
 ### Stretch Feature
 
